@@ -4,7 +4,7 @@ TrustKart is a responsive handmade marketplace for independent makers and the pe
 
 ## Hackathon Build Note
 
-This project was built in approximately **2 hours using vibe coding for a hackathon**. The implementation focuses on a complete, usable product slice rather than a static landing page: visitors can browse products, add items to a cart, sign in or sign up, sell products, and complete a Stripe checkout flow when the backend and environment variables are configured.
+This project was built in approximately *3 hours using vibe coding for a hackathon**. The implementation focuses on a complete, usable product slice rather than a static landing page: visitors can browse products, add items to a cart, sign in or sign up, sell products, and complete a Stripe checkout flow when the backend and environment variables are configured.
 
 ## What Is Included
 
