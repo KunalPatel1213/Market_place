@@ -1,131 +1,130 @@
-# TrustKart Marketplace
+TrustKart Marketplace
+
+🚀 Project Launch Status: TrustKart is currently on hold for a few days. We are working behind the scenes to finalize everything and will be launching very soon! Stay tuned for updates.
 
 TrustKart is a responsive handmade marketplace for independent makers and the people who want to discover their work. The landing page keeps the original TrustKart message and actions, while using a clean, typography-led composition inspired by the supplied visual reference. The hero intentionally has no image so the maker-first message remains the first-viewport focus.
 
-## Hackathon Build Note
+🚀 Hackathon Build Note
 
-This project was built in approximately *3 hours using vibe coding for a hackathon**. The implementation focuses on a complete, usable product slice rather than a static landing page: visitors can browse products, add items to a cart, sign in or sign up, sell products, and complete a Stripe checkout flow when the backend and environment variables are configured.
+This project was built in approximately 3 hours using vibe coding for a hackathon. The implementation focuses on a complete, usable product slice rather than a static landing page: visitors can browse products, add items to a cart, sign in or sign up, sell products, and complete a Stripe checkout flow when the backend and environment variables are configured.
 
-## What Is Included
+✨ What Is Included
 
-- Responsive TrustKart home page with hero, trust badges, marketplace categories, workflow, testimonials, and call-to-action sections.
-- Product marketplace at `/marketplace` with filtering and product cards.
-- Shared cart state with item quantities and totals at `/cart`.
-- Seller listing flow at `/sell`.
-- Clerk authentication routes at `/sign-in` and `/sign-up`, with local fallback links when Clerk is not configured.
-- Stripe checkout integration with success and cancel states.
-- Django REST backend for products, orders, authentication, payments, and Stripe webhooks.
-- Demo product seeding command for local development.
+Responsive Landing Page: TrustKart home page with hero section, trust badges, marketplace categories, workflow, testimonials, and call-to-action sections.
 
-## Tech Stack
+Product Marketplace: Browse products with category filtering and visual cards at /marketplace.
 
-- Next.js 16 App Router and React 19
-- TypeScript and Tailwind CSS 4
-- Lucide React icons
-- Clerk for optional authentication
-- Stripe for payments
-- Django and Django REST Framework backend
-- SQLite for local development
+Cart Management: Shared cart state with item quantities, updates, and total calculations at /cart.
 
-## Run the Frontend
+Seller Flow: Interface for makers to list products at /sell.
 
-Install dependencies and start the development server:
+Authentication: Clerk authentication routes at /sign-in and /sign-up, with local fallback links when Clerk is not configured.
 
-```bash
+Payment Processing: Stripe checkout integration with dedicated success and cancellation routes.
+
+Django REST Backend: Backend API handling products, orders, authentication, payments, and Stripe webhooks.
+
+Demo Seeding: Pre-configured command to seed initial demo products for testing.
+
+🛠 Tech Stack
+
+Frontend: Next.js 16 (App Router), React 19, TypeScript
+
+Styling: Tailwind CSS v4, Lucide React Icons
+
+Auth: Clerk (Optional for browsing, customizable)
+
+Payments: Stripe API & Webhooks
+
+Backend: Django & Django REST Framework
+
+Database: SQLite (Local development)
+
+💻 Run the Frontend
+
+Install dependencies:
+
 npm install
+
+
+Start the development server:
+
 npm run dev
-```
 
-Open (http://localhost:3000).
 
-Useful scripts:
+Open http://localhost:3000 in your browser.
 
-```bash
-npm run lint
-npm run build
-npm run start
-```
+Useful Frontend Scripts:
 
-## Run the Backend
+npm run lint    # Run ESLint check
+npm run build   # Create production build
+npm run start   # Start production server
 
-From the `backend` directory, create or activate a virtual environment, install dependencies, and run migrations:
 
-```bash
+⚙️ Run the Backend
+
+Navigate to the backend directory:
+
 cd backend
+
+
+Create and activate a virtual environment:
+
+Windows:
+
 python -m venv .venv
-.venv\\Scripts\\activate
+.venv\Scripts\activate
+
+
+macOS/Linux:
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+
+Install required packages, migrate the database, seed demo data, and start server:
+
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py seed_demo_products
 python manage.py runserver
-```
 
-The Django API is available at [http://127.0.0.1:8000](http://127.0.0.1:8000). See `backend/README.md` for the API-specific setup and endpoint details.
 
-## Environment Variables
+The Django API will be accessible at http://127.0.0.1:8000. Refer to backend/README.md for detailed endpoint documentations.
 
-Copy the required values into `.env.local` for the frontend. Clerk is optional for browsing the app, while Stripe is required for real checkout sessions.
+🔐 Environment Variables
 
-```env
+Create a .env.local file in the root directory of the frontend project and add the following keys:
+
 NEXT_PUBLIC_API_URL=http://127.0.0.1:8000/api
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 CLERK_SECRET_KEY=your_clerk_secret_key
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
 STRIPE_SECRET_KEY=your_stripe_secret_key
 STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
-```
 
-Never commit real keys or webhook secrets.
 
-## Responsive Design Decisions
+Note: Never commit real secret keys or webhook secrets to public version control.
 
-The home hero is centered and image-free, with fluid heading sizing through `clamp()` so the main message stays prominent without overflowing. Buttons stack on small screens, maker avatars wrap naturally, and the navigation switches to a compact menu. The remaining sections use the same responsive Tailwind breakpoints so content remains readable on phones, tablets, and desktop displays.
+📐 Responsive Design Decisions
 
-## Project Structure
+The hero section is centered and image-free, using fluid typography via CSS clamp() so the primary message remains clear across display sizes without overflowing. Navigation adapts to smaller devices with a collapsible menu, buttons stack gracefully on small viewports, and maker elements rewrap seamlessly across mobile, tablet, and desktop views.
 
-```text
-app/          Next.js routes and global styles
-components/   Reusable marketplace and landing-page sections
-context/      Shared cart provider
-backend/      Django API, models, payments, and webhooks
-public/       Static assets
-```
+📁 Project Structure
 
-## Development Status
+├── app/          # Next.js App Router routes, layouts, and global styles
+├── components/   # UI components, landing sections, and marketplace cards
+├── context/      # Shared React Context (Cart provider)
+├── backend/      # Django REST API, models, payments, and Stripe webhooks
+└── public/       # Static assets, icons, and media
 
-The application is a hackathon-ready prototype. Product browsing and cart behavior work locally, while Clerk and Stripe features become fully active after their environment variables and backend configuration are supplied.
 
-## Getting Started
+📌 Development Status
 
-First, run the development server:
+The application is a functional prototype. Public deployment is temporarily on hold for a few days while final improvements are being made. We will be launching officially very soon. Local development and testing features remain fully operational.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🌐 Deployment & Learn More
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Learn more about Next.js in the Next.js Documentation.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The application is optimized for quick deployment on the Vercel Platform.
